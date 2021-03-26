@@ -1,0 +1,41 @@
+{% set name = "PyMySQL" %}
+{% set version = "0.9.3" %}
+{% set sha256 = "d8c059dcd81dedb85a9f034d5e22dcb4442c0b201908bede99e306d65ea7c8e7" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  build:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - pymysql
+
+about:
+  home: http://github.com/PyMySQL/PyMySQL
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Pure Python MySQL Driver
+  description: |
+    This package contains a pure-Python MySQL client library. The goal of
+    PyMySQL is to be a drop-in replacement for MySQLdb and work on CPython,
+    PyPy and IronPython.
+  doc_url: http://pymysql.readthedocs.io/
+  dev_url: https://github.com/PyMySQL/PyMySQL
