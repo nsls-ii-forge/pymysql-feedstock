@@ -1,6 +1,6 @@
 {% set name = "PyMySQL" %}
-{% set version = "0.9.3" %}
-{% set sha256 = "d8c059dcd81dedb85a9f034d5e22dcb4442c0b201908bede99e306d65ea7c8e7" %}
+{% set version = "1.0.2" %}
+{% set sha256 = "816927a350f38d56072aeca5dfb10221fe1dc653745853d30a216637f5d7ad36" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
